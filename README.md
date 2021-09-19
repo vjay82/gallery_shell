@@ -1,8 +1,11 @@
 # gallery.sh
 
-[![Build Status](https://travis-ci.org/Cyclenerd/gallery_shell.svg?branch=master)](https://travis-ci.org/Cyclenerd/gallery_shell)
-
 Bash Script to generate static web galleries. No server-side programs (i.e. PHP, MySQL) required.
+
+## Fork
+
+This fork has been extended to handle Apple's HEIC file format. It offers downloads as JPEG or HEIC. It also normalizes file extensions and creates some .ZIP files as default downloads.
+
 
 ## Overview
 
@@ -27,7 +30,7 @@ Download Bash script `gallery.sh`:
 
 ```shell
 curl \
-  -f "https://raw.githubusercontent.com/Cyclenerd/gallery_shell/master/gallery.sh" \
+  -f "https://raw.githubusercontent.com/vjay82/gallery_shell/master/gallery.sh" \
   -o "gallery.sh"
 ```
 
@@ -35,11 +38,13 @@ curl \
 
 * [ImageMagick](http://www.imagemagick.org/) for the `convert` utility.
 * [JHead](http://www.sentex.net/~mwandel/jhead/) for EXIF data extraction
+* exiftool for HEIC EXIF data extraction
+* rename shell utility
 
 On a debian-based system (Ubuntu), just run:
 
 ```shell
-sudo apt install imagemagick jhead
+sudo apt install imagemagick jhead exiftool rename
 ```
 
 Under macOS you can install it with...
@@ -47,13 +52,13 @@ Under macOS you can install it with...
 [MacPort](https://www.macports.org/):
 
 ```shell
-sudo port install imagemagick jhead
+sudo port install imagemagick jhead exiftool rename
 ```
 
 [Homebrew](https://brew.sh/):
 
 ```shell
-brew install imagemagick jhead
+brew install imagemagick jhead exiftool rename
 ```
 
 ## Usage
