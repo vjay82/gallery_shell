@@ -9,7 +9,7 @@
 #########################################################################################
 
 MY_HEIGHT_SMALL=187
-MY_HEIGHT_LARGE=768
+MY_HEIGHT_LARGE=833 # correct height for 4:3
 MY_QUALITY=85
 MY_THUMBDIR="__thumbs"
 MY_INDEX_HTML_FILE="index.html"
@@ -125,6 +125,12 @@ cat > "$MY_INDEX_HTML_FILE" << EOF
 <style>
 .btn {
     margin-bottom: 5px;
+}
+.col {
+	overflow: hidden;
+}
+a>img {
+	height: ${MY_HEIGHT_SMALL}px
 }
 </style>
 </head>
@@ -255,7 +261,7 @@ EOF
 	cat >> "$MY_IMAGE_HTML_FILE" << EOF
 <div class="row">
 	<div class="col">
-		<p><img src="$MY_HEIGHT_LARGE/$MY_FILENAME" class="img-fluid" alt="Image: $MY_FILENAME"></p>
+		<p><img src="$MY_HEIGHT_LARGE/$MY_FILENAME" style="width:100%; max-height: ${MY_HEIGHT_LARGE}px; object-fit: contain;" class="img-fluid" alt="Image: $MY_FILENAME"></p>
 	</div>
 </div>
 <div class="row" style="flex-direction: column">
